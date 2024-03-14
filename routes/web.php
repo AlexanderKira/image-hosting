@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Image\ImageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,4 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])->name('pages.home');
+Route::get('/', [HomeController::class, 'index'])->name('page.home');
+Route::post('/', [ImageController::class, 'store'])->name('image.store');
+Route::post('{image}/download', [ImageController::class, 'download'])->name('image.download');
+Route::post('{image}/delete', [ImageController::class, 'delete'])->name('image.delete');
+
+
